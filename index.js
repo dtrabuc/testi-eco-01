@@ -2,21 +2,21 @@
  Point de départ de l'application
 */
 
-var app = require('./app');
-var debug = require('debug')('ecoride:server');
-var http = require('http');
+import app from './app.js';
+import debug from 'debug';
+import http from 'http';
 
 /*
 Récupérer le port pour intégration au site
 */
 
-var port = process.env.PORT || '8888';
+const port = process.env.PORT || '8888';
 
 /*
 Creation du serveur HTTP
 */
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 /*
 Normalisation du port
@@ -35,7 +35,7 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
+  const bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
 
